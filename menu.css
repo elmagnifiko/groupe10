@@ -1,15 +1,15 @@
-#check {
+#check , #checks {
     display: none;
 
 }
 
-label #btn {
+label .btn {
     position: absolute;
     cursor: pointer;
     background-color: #cccccc84;
 }
 
-label #btn {
+label .btn {
     left: 0;
     top: 25px;
     font-size: 35px;
@@ -19,6 +19,6 @@ label #btn {
     display: none;
 }
 
-#check:checked ~ .sidebar {
+#check:checked ~ .sidebar{
     left: 0;
 }

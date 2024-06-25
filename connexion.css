@@ -103,7 +103,26 @@ display: none;
 }
 
 
+@media screen and (max-width:425px){
+    .container{
+        width: 420px;
+        margin: auto;
+    }
+    input , button {
+        width: 80% !important;
+        margin: auto;
+    }
+    .input  {
+        display: flex;
+        justify-content: center;
+    }
+    .lien , .btn{
+        margin-left: 50px;
+    }
 
+}
+
+/* 
 
 @media screen and (max-width:375px) {
     .container {
@@ -150,4 +169,4 @@ display: none;
         margin: auto;
     }
 
-}
+} */

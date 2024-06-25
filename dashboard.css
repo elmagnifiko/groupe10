@@ -498,7 +498,7 @@ body {
         margin-top: 18rem;
     }
 
-    label #btn {
+    label .btn {
         display: inline;
         left: 20px;
         top: 10px;

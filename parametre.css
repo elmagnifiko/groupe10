@@ -1,7 +1,9 @@
 .container{
     position: relative;
 }
-
+.m{
+    display: none;
+}
 .Modifier {
     display: flex;
     justify-content: space-between;
@@ -208,7 +210,7 @@
     .contenu{
         margin-left: 4rem;
         width: 96%;
-        height: 87vh;
+        height: 127vh;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 10px;
@@ -218,15 +220,17 @@
         padding: 10px;
     }
     #input-message {
-        height: 500px;
+        height: 200px;
     }
+    
+    
 }
 
-@media screen and (width:1024px){
+@media screen and (max-width:1024px){
     .contenu{
         margin-left: 4rem;
         width: 96%;
-        height: 87vh;
+        height: 220vh;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 10px;
@@ -236,7 +240,41 @@
         padding: 10px;
     }
     #input-message {
-        height: 500px;
+        height: 400px;
+    }
+    .centre {
+        display: flex;
+        flex-direction:column-reverse;
+        margin: auto;
+    }
+    .divbtn , .entete{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    .divbtn button {
+        width: 100%;
+        margin-left: 0 !important;
+        margin: 10px;
+    }
+    .divvent{
+        width: 90% !important;
+    }
+    .profil {
+        width: 60% !important;
+        margin: auto;
+    }
+    .m1 {
+        display: none;
+    }
+    .m{
+        display: block;
+    }
+    .changement{
+        width: 500px;
+       height: 600px;
+       font-size: small;
+       margin: 300px -400px;
     }
 }
 
@@ -270,10 +308,34 @@
     #input-message {
         height: 500px;
     }
+    .changement{
+        width: 300px;
+        margin-left: -700px;
+    }
+    .changement input , .changement button{
+        width: 250px;
+    }
 
 }
 
 
+@media screen and (max-width:425px) {
+    .contenu {
+        margin-top: 110px !important;
+        margin: 0;
+        margin-left: -60px;
+        width: 370px;
+    }
+    .changement{
+        width: 300px;
+        margin-left: -750px;
+    }
+    .changement input , .changement button{
+        width: 250px;
+    }
+
+}
+/* 
 @media screen and (max-width:425px) {
     .container {
         max-width: 425px !important;
@@ -399,4 +461,4 @@
    }
 
    
-}
+} */

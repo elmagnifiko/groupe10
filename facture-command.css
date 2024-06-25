@@ -150,7 +150,9 @@ thead {
     width: 20em;
 }
 
-
+.hidden {
+    display: none;
+}
 
 @media screen and (max-width:375px) {
     .container {

@@ -71,7 +71,7 @@ function ajout(params) {
 
  ajout(Commande)
 
-function commande() {
+ function commande() {
     let AZ = document.querySelectorAll('th i');
     for (let i = 0; i < AZ.length; i++) {
         if (AZ[i].classList.contains('fa-arrow-down-a-z')) {
@@ -86,12 +86,28 @@ function commande() {
 
 let fct = document.querySelectorAll('thead th');
 
+fct.forEach((th, index) => {
+    th.addEventListener('click', function() {
+        commande()
+ console.log("object")
+        // Parcours des colonnes à partir de la deuxième (index 1)
+        for (let i = 0; i < fct.length ; i++) {
+            let icones = document.querySelectorAll(`thead tr th:nth-child(${i + 1}) i`);
 
-    fct[0].addEventListener('click', function() {
-           commande();
-            fct[0].nextElementSibling.display = 'none'     
-        
+            if ( index === i) {
+                // Si c'est la première colonne ou la colonne cliquée, afficher l'icône
+                icones.forEach((icone) => {
+                    icone.classList.remove('hidden');
+                });
+            } else {
+                // Sinon, masquer les icônes des autres colonnes
+                icones.forEach((icone) => {
+                    icone.classList.add('hidden');
+                });
+            }
+        }
     });
+});
 
 let tableau = [];
 const check = document.querySelector('#check1');
@@ -122,3 +138,32 @@ if (profilImage) {
     image.style.borderRadius = "250px"
     image.src =  profilImage;
 }
+const compare = function(ids, asc){
+    return function(row1, row2){
+      const tdValue = function(row, ids){
+        return row.children[ids].textContent;
+      }
+      const tri = function(v1, v2){
+        if (v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2)){
+          return v1 - v2;
+        }
+        else {
+          return v1.toString().localeCompare(v2);
+        }
+        return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
+      };
+      return tri(tdValue(asc ? row1 : row2, ids), tdValue(asc ? row2 : row1, ids));
+    }
+  }
+  
+  const tbody = document.querySelector('tbody');
+  const thx = document.querySelectorAll('th');
+  const trxb = tbody.querySelectorAll('tr');
+  thx.forEach(function(th){
+    th.addEventListener('click', function(){
+      let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
+      classe.forEach(function(tr){
+         tbody.appendChild(tr)
+      });
+    })
+  });

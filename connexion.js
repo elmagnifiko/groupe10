@@ -5,13 +5,18 @@ const alerte = document.querySelector('.alerte');
 const titre =  document.querySelector('.alerte h1');
 const paragraphe =  document.querySelector('.alerte p');
 let nombreTentatives = 0;
-let countdown = 300; 
-
-localStorage.setItem('motDePasse', "password");
-localStorage.setItem('nomUtilisateur', "admin");
-
-let nom = localStorage.getItem('nomUtilisateur');
+let countdown = 300;
+ 
 let passe = localStorage.getItem('motDePasse');
+let motDePasse = "password";
+if (!passe) {
+    localStorage.setItem('motDePasse',motDePasse ); 
+}
+console.log(passe)
+ localStorage.setItem('nomUtilisateur', "admin");
+ let nom = localStorage.getItem('nomUtilisateur')
+
+
 
 btnConnexion.addEventListener("click", function(event) {
     event.preventDefault(); 
@@ -38,6 +43,7 @@ btnConnexion.addEventListener("click", function(event) {
                 btnConnexion.disabled = false;
                 window.location.href = "dashboard.html";
             } else {
+                alerte.style.display = 'block';
                 const timerInterval = setInterval(function () {
                     const minutes = Math.floor(countdown / 60);
                     const seconds = countdown % 60;
@@ -54,9 +60,9 @@ btnConnexion.addEventListener("click", function(event) {
                         passwordInput.disabled = false;
                         btnConnexion.disabled = false;
                         nombreTentatives = 0; 
-                    }
+                    };
                 }, 1000);
-            }
+            };
         } else {
             alerte.style.display = 'block';
             setTimeout(function () {
